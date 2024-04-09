@@ -1,14 +1,12 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/user")
 
-
 //signup route handler
 
-exports.signup = async (req,res)=>{
-
+exports.signup = async (req, res)=>{
     try {
         //get input data
-        const {name, email, password, role}  =  req.body; 
+        const {name,email,password,role}=req.body; 
         
         //check if user already exist
         const existingUser = await User.findOne({email});
@@ -19,7 +17,6 @@ exports.signup = async (req,res)=>{
                 message:"user already exist"
             });
         }
-
         
         //securing password
         let hashedPassword;

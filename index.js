@@ -13,9 +13,14 @@ require("./config/database").connect();
 
 //route importing and mounting 
 const user = require("./routes/user");
-app.use("api/v1" , user);
+app.use(user);
 
 
 app.listen(PORT, ()=>{
     console.log(`App is listening at ${PORT}`)
+})
+
+
+app.get("/", (req,res)=>{
+    res.send(`<h1>This is Home page BITCH </h1>`);
 })
